@@ -6,25 +6,24 @@ import { GetOrderByStatus } from "@/lib/actions/user.action";
 import { currentUser } from "@clerk/nextjs";
 
 const Page = async () => {
-    const user = await currentUser()
-    if(!user) return 
+  const user = await currentUser();
+  if (!user) return;
 
-    const listOrders = await GetOrderByStatus(user.id, Status.cancel)
+  const listOrders = await GetOrderByStatus(user.id, Status.cancel);
 
-    const orders = passOrderToClient(listOrders)
+  const orders = passOrderToClient(listOrders);
 
-    return (
-        <>
-        <TableMagic 
-        listOrder={orders} 
+  return (
+    <>
+      <TableMagic
+        listOrder={orders}
         columns={columns}
         searchColumns={SearchColumns.description}
         dropMenu={null}
         selectBox={null}
-        />
-          
-        </>
-    )
-}
+      />
+    </>
+  );
+};
 
 export default Page;

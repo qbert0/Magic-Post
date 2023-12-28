@@ -13,11 +13,23 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+import {
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+import { Button } from "../ui/button"
 import { orderTableTitle, orderTableValue } from "@/client/contants/ColumnsTitle"
 import { order } from "@/client/util/ColumnsType"
+import { MoreHorizontal } from "lucide-react"
+import Link from "next/link"
 
 
-
+// cho nguoi dung 
 export const columns: ColumnDef<order>[] = [
     { // cot thong tin 
       accessorKey: orderTableValue.description,
@@ -89,8 +101,7 @@ export const columns: ColumnDef<order>[] = [
               </div>
           )
       }
-    },
-    { // cot nguoi nhan
+    },{ // cot nguoi nhan
       accessorKey: orderTableValue.receiverName,
       header: () => {
           // phan dau 
@@ -108,6 +119,31 @@ export const columns: ColumnDef<order>[] = [
               </div>
           )
       },
+    },{// xem trang thai
+        id: "actions",
+        enableHiding: false,
+        cell: ({ row }) => {
+            const orderId = row.original.id
+          return (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <Link 
+                    href={`/order/${orderId}`}
+                >
+                <DropdownMenuItem>
+                    Xem chi tiết
+                </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )
+        },
     },
     
   ]

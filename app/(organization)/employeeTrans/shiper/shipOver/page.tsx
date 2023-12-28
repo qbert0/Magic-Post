@@ -32,6 +32,9 @@ const Page = async () => {
 
     return (
         <>
+        <div className="m-2 text-dark-1 text-8xl">
+            {transpoint.address}
+        </div>
         <TableMagic
             listOrder={listorder}
             columns={OrderSpecail}

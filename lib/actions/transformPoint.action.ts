@@ -30,7 +30,7 @@ export async function GetTransPoint (id : string) {
 }
 
 // lay nhan vien cua quan ly
-export async function fetchEmployeesTransPoint (_id : string) {
+export async function ManagerTransGetEmployee (_id : string) {
     try {
         connectData()
         const transPoint = await TransPoint.findById(_id ).populate ({

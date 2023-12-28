@@ -1,5 +1,5 @@
 import { AddressCity } from "@/client/contants/DropMenuTitle";
-import { SearchColumns, SelectPoint, Status } from "@/client/contants/enum";
+import { SearchColumns, Status } from "@/client/contants/enum";
 import { SelectStatusBox } from "@/client/util/DataType";
 import { OrderEmployee } from "@/components/columns/OrderEmployee";
 import TableMagic from "@/components/forms/TableMagic";
@@ -28,7 +28,9 @@ const Page = async  () => {
 
     return (
         <>
-        {gatherpoint?.address}
+        <div className="m-2 text-dark-1 text-8xl">
+            {gatherpoint?.address}
+        </div>
         <TableMagic
             listOrder={listorder}
             columns={OrderEmployee}

@@ -1,8 +1,7 @@
 import { UpdatePointDone, UpdateStatus } from "@/lib/actions/order.action";
 import { Button } from "../ui/button";
 import { AddOrderToGatherPoint, FindGatherAndAddOrder, FindTransPointAndAddOrder } from "@/lib/actions/gatherPoint.action";
-import { SelectPoint, Status } from "@/client/contants/enum";
-import { AddOrderToTranPoint } from "@/lib/actions/transformPoint.action";
+import {  Status } from "@/client/contants/enum";
 import { SelectStatusBox } from "@/client/util/DataType";
 import { useRouter } from "next/navigation";
 
@@ -39,7 +38,8 @@ const SelectBox = ({table, select}: Props) => {
                 if(CheckAddress(item.original.city)) {
                     await UpdateStatus(item.original.id, select.title)
                     await FindTransPointAndAddOrder(item.original.id, item.original.district, select.workPlace)
-                    // chua xong
+                    await UpdatePointDone(item.original.item, Status.gatherPassTransCheck)
+                    console.log("gatherPassTransCheck")
                 } else {
                     await UpdateStatus(item.original.id, select.title)
                     await FindGatherAndAddOrder(item.original.id, item.original.city)
@@ -69,7 +69,6 @@ const SelectBox = ({table, select}: Props) => {
     }
     const CheckAddress = (address : string) => {
         if(address === select.workPlace) {
-            
             return true
         }
         else return false

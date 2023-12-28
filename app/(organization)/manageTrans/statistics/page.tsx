@@ -9,11 +9,10 @@ import { currentUser } from "@clerk/nextjs";
 
 const Page = async () => {
     const user = await currentUser()  
-    
-    if(!user) return <div></div>
-
-
+    if(!user) return 
     const userInfor = await fetchUser(user.id)
+
+    // lay order
 
     const orders = await ManagerTransGetOrder(userInfor.workPlace)
 

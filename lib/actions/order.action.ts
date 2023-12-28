@@ -5,6 +5,7 @@ import Order from "../models/order.model";
 import TransPoint from "../models/transPoint.model";
 import User from "../models/user.model";
 import connectData from "../mongoose"
+import { PassOrderToTableStatus } from "@/client/util/orderUtil";
 
 interface Params {
     sender : string,
@@ -69,9 +70,23 @@ export async function createNewOrder({
 
 //fetch order //done
 export async function fetchOrder(id:string) {
+    try {
     connectData();
     
-    return await Order.findById(id)
+    const order =  await Order.findOne({_id: id}).populate({
+        path : "sender",
+        model : User,
+    }).lean()
+    
+    const newOrder = (order as any)
+
+    const orderOver = PassOrderToTableStatus(newOrder)
+
+    return orderOver
+    }catch {
+
+    }
+    
 }
 
 // update status //done

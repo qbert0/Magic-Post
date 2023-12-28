@@ -44,6 +44,8 @@ const convetStatus = (value : number) => {
     }
 }
 
+
+// danh rieng cho employee transport
 export const OrderSpecail: ColumnDef<order>[] = [
     { // cot thong tin 
       accessorKey: orderTableValue.description,
@@ -134,7 +136,7 @@ export const OrderSpecail: ColumnDef<order>[] = [
               </div>
           )
       },
-    },{
+    },{// cot trang thai
         accessorKey: "statusIsDone",
         header: () => {
             return (
@@ -175,7 +177,7 @@ export const OrderSpecail: ColumnDef<order>[] = [
         enableSorting: false,
         enableHiding: false,
     },
-    {
+    {// trang thai hoan thanh hay huy don hang
         id: "actions",
         enableHiding: false,
         cell: ({ row }) => {

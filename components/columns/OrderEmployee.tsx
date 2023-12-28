@@ -18,7 +18,7 @@ import { order } from "@/client/util/ColumnsType"
 import { Checkbox } from "../ui/checkbox"
 
 
-
+// cot cho employee 
 export const OrderEmployee: ColumnDef<order>[] = [
     { // cot thong tin 
       accessorKey: orderTableValue.description,
@@ -120,6 +120,7 @@ export const OrderEmployee: ColumnDef<order>[] = [
             }
             onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
             aria-label="Select all"
+            className="mr-3"
           />
         ),
         cell: ({ row }) => (

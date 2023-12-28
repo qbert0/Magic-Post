@@ -70,25 +70,27 @@ const TableMagic =  ({listOrder, columns, searchColumns, dropMenu, selectBox} : 
     return (
     <>
     <div className="w-full">
-      <div className="flex items-center py-4">
-        {/* thanh search để search theo searchColum là cái cột cần tìm*/}
-        {searchColumns !== null &&
-        <Search
-          table={table} 
-          searchColumns={searchColumns}
-        />}
+      <div className="flex justify-between">
+        <div className="flex items-center py-4">
+          {/* thanh search để search theo searchColum là cái cột cần tìm*/}
+          {searchColumns !== null &&
+          <Search
+            table={table} 
+            searchColumns={searchColumns}
+          />}
+        </div>
+        <div className="flex items-center py-4">
+          { // thanh drop de duyet cac phan tu
+          dropMenu !== null && 
+          <DropBox 
+            table={table}
+            menu={dropMenu}
+          />}
+        </div>
       </div>
+      
 
-      <div className="flex items-center py-4">
-        { // thanh drop de duyet cac phan tu
-        dropMenu !== null && 
-        <DropBox 
-          table={table}
-          menu={dropMenu}
-        />
-        }
-        
-      </div>
+      
 
       {/* cái bảng thôi, kẹ mẹ nó  */}
       <div className="rounded-md border">
@@ -115,6 +117,7 @@ const TableMagic =  ({listOrder, columns, searchColumns, dropMenu, selectBox} : 
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

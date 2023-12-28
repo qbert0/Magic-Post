@@ -614,7 +614,6 @@ const InventoryOrder = ({
       </>
     }
 
-
     </>
   );
 }

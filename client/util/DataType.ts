@@ -27,4 +27,7 @@ export interface SelectStatusBox {
   workPlace : string,
   status : Status,
 }
+
+
+
   

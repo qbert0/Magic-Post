@@ -1,25 +1,3 @@
-// export enum Status {
-//     wait = 1,
-//     transporting = 2,
-//     payNot = 5,
-//     cancel = 6,
-//     done = 7,
-
-// }
-
-// export enum EmployeeTrans {
-//     invrentoryted = 2,
-//     finalToNeighCheck = 7,
-//     orderPass = 8,
-// }
-
-// export enum EmployeeGather {
-//     neighToFinallCheck = 3,
-//     finalToFinal = 4,
-//     finalToFinalCheck = 5,
-//     finalToNeigh = 6,
-// }
-
 export enum Status {
     wait = 1,   // trans
     inventoryted= 2,   // trans 
@@ -39,19 +17,14 @@ export enum Status {
     
 }
 
-export enum PointPass {
-    none = 1,
-    trans = 2,
-    gather = 3,
-}
-
 
 export enum Career {
     employeeTrans = "EmTrans",
     employeeGather = "EmGather",
     managerTrans = "MaTrans",
     magegerGather = "MaGather",
-    owner = "owner"
+    owner = "owner",
+    customer = ""
 }
 
 export enum TypeAdd {
@@ -59,19 +32,16 @@ export enum TypeAdd {
     old = 0,
 }
 
-export enum SelectPoint {
-    trans = "trans",
-    gather = "gather",
+export enum PathRoot {
+    EmployeeTrans = "/employeeTrans",
+    EmployeeGather = "/employeeGather",
+    ManagerTrans = "/manageTrans",
+    ManangerGather = "/manageGather",
+    Owner = "/owner",
+    user = "",
+
 }
 
-export enum Company {
-    managerTrans = "MaTran",
-    managerGather = "MaGather",
-    employeeGather = "EmGather",
-    employeeTrans = "EmTrans",
-    owner = "own",
-    customer = "",
-}
 
 export enum SearchColumns {
     description = "description",

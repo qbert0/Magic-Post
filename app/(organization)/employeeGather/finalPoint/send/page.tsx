@@ -27,7 +27,9 @@ const Page = async () => {
     }
     return (
         <>
-        {gatherpoint?.address}
+        <div className="m-2 text-dark-1 text-8xl">
+            {gatherpoint?.address}
+        </div>
         <TableMagic
             listOrder={listorder}
             columns={OrderEmployee}

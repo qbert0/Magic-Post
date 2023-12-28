@@ -18,7 +18,22 @@ import { employeeTableTitle, employeeTableValue } from "@/client/contants/Column
 import { Button } from "@/components/ui/button"
 import { Trash2 } from 'lucide-react';
 import { employee } from "@/client/util/ColumnsType"
+import { Career } from "@/client/contants/enum"
 
+
+const convertCarrer = (career : string ) => {
+  if(career === Career.employeeTrans) {
+      return "Nhân viên"
+  } else if (career === Career.employeeGather) {
+      return "Nhân viên"
+  } else if (career === Career.managerTrans) {
+      return "Quản lý"
+  } else if (career === Career.magegerGather) {
+      return "Quản lý"
+  } else {
+      return "Quản lý cấp cao"
+  }
+}
 
 
 
@@ -55,7 +70,7 @@ export const UserColumns: ColumnDef<employee>[] = [
           // cac cot phia duoi
           return (
               <div className="capitalize">
-                  {row.getValue(employeeTableValue.career)}
+                  {convertCarrer(row.getValue(employeeTableValue.career))}
               </div>
           )
       }

@@ -94,15 +94,15 @@
   }
 
   .link_focus {
-    @apply focus:outline-none focus-visible:ring hover:bg-brand-500 hover:text-white cursor-pointer;
+    @apply focus:outline-none focus-visible:ring hover:bg-brand-500 text-white hover:text-white cursor-pointer;
   }
 
   .linksub_focus {
-    @apply hover:bg-brand-500 hover:text-white cursor-pointer;
+    @apply hover:bg-brand-500 hover:text-white text-white cursor-pointer;
   }
 
   .link_active {
-    @apply bg-pink-1;
+    @apply bg-brand-500;
   }
 
   .pagination {
